@@ -13,42 +13,62 @@ var ProjectView = Backbone.View.extend({
     return this;
   },
 
-  show: function(){
+  /**
+  * @private
+  */
+  getAnim: function(animIn){
+    var array = animIn ? ProjectView.animIn : ProjectView.animOut;
+    var index = Math.floor(Math.random() * array.length);
+    return array[index];
+  },
 
+
+  show: function(anim){
     if(this.animating){
       return;
     }else{
       this.animating = true;
     }
 
-    setTimeout(_.bind(function(){
-      this.$el.removeClass('hide');
-      this.$el.addClass('show');
-      this.$el.addClass('moveUpIn');
-    }, this), 0);
+    anim = anim || this.getAnim(true);
+    console.log(anim);
+    this.$el.removeClass('hide');
+    this.$el.addClass('show');
+    this.$el.addClass(anim);
 
-    this.$el.one('animationend', _.bind(function(){
-      this.$el.removeClass('moveUpIn');
-      this.animating = false;
+    var counter = 0;
+
+    this.$el.on('animationend', _.bind(function(){
+      counter++;
+      if(counter === 2){
+        this.onAnimEnd(anim);
+      }
     }, this));
 
   },
 
-  hide: function(){
+  /**
+  * @private
+  */
+  onAnimEnd: function(anim){
+    this.$el.removeClass(anim);
+    this.animating = false;
+  },
+
+  hide: function(anim){
     if(this.animating){
       return;
     }else{
       this.animating = true;
     }
 
-    setTimeout(_.bind(function(){
-      this.$el.addClass('hide');
-      this.$el.addClass('moveUpOut');
-    }, this), 0);
+    anim = anim || this.getAnim(false);
+    this.$el.addClass('hide');
+    this.$el.addClass(anim);
 
     this.$el.one('animationend', _.bind(function(){
       this.$el.removeClass('show');
-      this.$el.removeClass('moveUpOut');
+      this.$el.removeClass(anim);
       this.animating = false;
     }, this));
   },

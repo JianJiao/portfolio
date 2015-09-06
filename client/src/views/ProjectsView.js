@@ -14,7 +14,6 @@ var ProjectsView = Backbone.View.extend({
     // track subviews incase we need to remove the view
     this.subviews = [];
     this.render();
-    this.test();
   },
 
   render: function(){
