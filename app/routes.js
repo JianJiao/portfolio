@@ -1,11 +1,7 @@
 var home = require('../controllers/home'),
-    contacts = require('../controllers/contacts');
+    test = require('../controllers/test');
 
 module.exports.initialize = function(app) {
     app.get('/', home.index);
-    app.get('/api/contacts', contacts.index);
-    app.get('/api/contacts/:id', contacts.getById);
-    app.post('/api/contacts', contacts.add);
-    // app.put('/api/contacts', contacts.update);
-    app.delete('/api/contacts/:id', contacts.delete);
+    app.get('/test', test.test);
 };

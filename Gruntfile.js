@@ -58,7 +58,8 @@ module.exports = function(grunt) {
             },
             app: {
                 files: {
-                    'build/app.js': ['client/src/main.js']
+                    'build/app.js': ['client/src/main.js'],
+                    'build/uitest.js': ['client/src/test.js']
                 },
                 options: {
                     transform: ['hbsfy'],
@@ -91,7 +92,8 @@ module.exports = function(grunt) {
         },
 
         concat: {
-            'build/<%= pkg.name %>.js': ['build/vendor.js', 'build/app.js']
+            'build/<%= pkg.name %>.js': ['build/vendor.js', 'build/app.js'],
+            'build/uitest.js': ['build/vendor.js', 'build/uitest.js']
         },
 
         copy: {
@@ -105,6 +107,9 @@ module.exports = function(grunt) {
                 }, {
                     src: 'client/img/*',
                     dest: 'public/img/'
+                },{
+                    src: 'build/uitest.js',
+                    dest: 'public/js/uitest.js'
                 }]
             },
             prod: {
