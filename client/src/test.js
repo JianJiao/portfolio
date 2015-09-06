@@ -1,5 +1,7 @@
 var ProjectView = require('./views/ProjectView');
 var Project = require('./models/Project');
+var App = require('./views/App');
+
 
 $('document').ready(function(){
   var test = {
@@ -15,9 +17,14 @@ $('document').ready(function(){
         view.show();
       }.bind(this), 0);
     },
+
+    init: function(){
+      var app = new App();
+    }
   };
 
-  test.anim();
+  // test.anim();
+  test.init();
 
 
 
