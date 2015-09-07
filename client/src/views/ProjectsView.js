@@ -15,6 +15,9 @@ var ProjectsView = Backbone.View.extend({
     // track subviews incase we need to remove the view
     this.subviews = [];
     this.render();
+
+    // start the slideshow
+    this.collection.initRoutine();
   },
 
   render: function(){

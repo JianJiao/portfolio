@@ -4,7 +4,8 @@ var ProjectView = Backbone.View.extend({
   template: require('../../templates/project.tmpl.hbs'),
 
   initialize: function(){
-    this.animating = false;
+    this.listenTo(this.model, 'show', this.show);
+    this.listenTo(this.model, 'hide', this.hide);
   },
 
   render: function(){
@@ -24,19 +25,12 @@ var ProjectView = Backbone.View.extend({
 
 
   show: function(anim){
-    if(this.animating){
-      return;
-    }else{
-      this.animating = true;
-    }
-
     anim = anim || this.getAnim(true);
-    console.log(anim);
+    console.log('show is triggered ' + anim);
     this.$el.removeClass('hide');
     this.$el.addClass('show');
-    this.$el.addClass(anim);
-
     var counter = 0;
+    this.$el.addClass(anim);
 
     this.$el.on('animationend', _.bind(function(){
       counter++;
@@ -44,37 +38,38 @@ var ProjectView = Backbone.View.extend({
         this.onAnimEnd(anim);
       }
     }, this));
-
   },
 
   /**
+  * Clean up when all animation on el ends
   * @private
   */
   onAnimEnd: function(anim){
     this.$el.removeClass(anim);
-    this.animating = false;
+    this.$el.off('animationend');
+    Backbone.Events.trigger('finish');
   },
 
   hide: function(anim){
-    if(this.animating){
-      return;
-    }else{
-      this.animating = true;
-    }
-
     anim = anim || this.getAnim(false);
+    console.log('hide is triggered ' + anim);
     this.$el.addClass('hide');
+    var counter = 0;
     this.$el.addClass(anim);
 
-    this.$el.one('animationend', _.bind(function(){
-      this.$el.removeClass('show');
-      this.$el.removeClass(anim);
-      this.animating = false;
+    this.$el.on('animationend', _.bind(function(){
+      counter++;
+      if(counter === 2){
+        this.$el.removeClass('show');
+        this.onAnimEnd(anim);
+      }
     }, this));
   },
 
 },{
   animIn: ['moveUpIn','moveDownIn','slideUpIn','slideDownIn','slideLeftIn','slideRightIn'],
+  animOut: ['moveUpOut', 'moveDownOut', 'slideUpOut', 'slideDownOut', 'slideLeftOut',
+   'slideRightOut'],
 });
 
 module.exports = ProjectView;
