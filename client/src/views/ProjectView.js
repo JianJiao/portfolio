@@ -67,9 +67,25 @@ var ProjectView = Backbone.View.extend({
   },
 
 },{
+  anims: [
+  ['moveUpIn', 'moveUpOut'],
+  ['moveDownIn', 'moveDownOut'],
+  ['slideUpIn', 'slideUpOut'],
+  ['slideDownIn', 'slideDownOut'],
+  ['slideLeftIn', 'slideLeftOut'],
+  ['slideRightIn', 'slideRightOut'],
+  ],
   animIn: ['moveUpIn','moveDownIn','slideUpIn','slideDownIn','slideLeftIn','slideRightIn'],
   animOut: ['moveUpOut', 'moveDownOut', 'slideUpOut', 'slideDownOut', 'slideLeftOut',
    'slideRightOut'],
+  /**
+  * Class level method
+  * @return {[]} animation pair
+  */
+  getAnim: function(){
+    var idx = Math.floor(Math.random() * ProjectView.anims.length);
+    return ProjectView.anims[idx];
+  },
 });
 
 module.exports = ProjectView;

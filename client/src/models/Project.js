@@ -6,12 +6,12 @@ var Project = Backbone.Model.extend({
     };
   },
 
-  show: function(){
-    this.trigger('show');
+  show: function(anim){
+    this.trigger('show', anim);
   },
 
-  hide: function(){
-    this.trigger('hide');
+  hide: function(anim){
+    this.trigger('hide', anim);
   },
 
   requestShow: function(){

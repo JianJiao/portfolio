@@ -1,4 +1,5 @@
 var Project = require('../models/Project');
+var ProjectView = require('../views/ProjectView');
 var Projects = Backbone.Collection.extend({
   model: Project,
 
@@ -39,15 +40,16 @@ var Projects = Backbone.Collection.extend({
     // if already fired or null, no harm
     clearTimeout(this.timerID);
     this.animating = true;
+    var anim = ProjectView.getAnim();
     // check for the first time initiating an animation
     if(this.current){
       this.counter = 0;
-      this.current.hide();
+      this.current.hide(anim[1]);
     }else{
       this.counter = 1;
     }
     this.current = model;
-    this.current.show();
+    this.current.show(anim[0]);
     // if no request made after 5s, make a new reqeust to show the next one
     this.timerID = setTimeout(_.bind(this.showNext, this), 5000);
 
