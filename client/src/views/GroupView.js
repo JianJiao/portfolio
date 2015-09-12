@@ -1,4 +1,5 @@
 var LayerView = require('./LayerView.js');
+var ProjectsView = require('./ProjectsView.js');
 
 // el will be passed when initializing
 var GroupView = Backbone.View.extend({
@@ -20,10 +21,19 @@ var GroupView = Backbone.View.extend({
 
 var IntroGroup = GroupView.extend({
 
-  initialize: function(){
+  // @param: {Projects(collection)} options.projects
+  initialize: function(options){
     this.constructor.__super__.initialize.apply(this, arguments);
     this.z = -60;
     this.opacityVal = 1;
+    console.log(options.projects);
+    this.initSlideshow(options.projects);
+  },
+
+  initSlideshow: function(projects){
+    this.projectsView = new ProjectsView({
+      collection: projects,
+    });
   },
 
   onScroll: function(yDelta){

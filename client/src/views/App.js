@@ -1,5 +1,4 @@
 // for those that you export in Gruntfile, they are already there
-var ProjectsView = require('./ProjectsView');
 var Projects = require('../collections/Projects');
 var config = require('../config');
 var GroupView = require('./GroupView');
@@ -14,14 +13,13 @@ var App = Backbone.View.extend({
     this.config = config;
     this.y = this.$el.scrollTop();
 
+    // prepare the projects
+    this.projects = new Projects(this.config.projects);
 
-    // groups
-    this.introGroupView = new GroupView.IntroGroup({el: '#group1'});
-
-    // prepare the projects and create the view
-    projects = new Projects(this.config.projects);
-    this.projectsView = new ProjectsView({
-      collection: projects,
+    // intro group
+    this.introGroupView = new GroupView.IntroGroup({
+      el: '#group1',
+      projects: this.projects,
     });
   },
 
