@@ -1,0 +1,22 @@
+ .debug {
+    position: fixed;
+    top: 0;
+    left: .5em;
+    z-index: 999;
+    background: rgba(0,0,0,.85);
+    color: #fff;
+    padding: .5em;
+    border-radius: 0 0 5px 5px;
+  }
+  .debug-on .group {
+    -webkit-transform: translate3d(800px, 0, -800px) rotateY(30deg);
+    transform: translate3d(700px, 0, -800px) rotateY(30deg);
+ }
+  .debug-on .layer {
+    box-shadow: 0 0 0 2px #000;
+    opacity: 0.9;
+  }
+  .group {
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+  }
