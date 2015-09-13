@@ -1,11 +1,11 @@
 {
   "name": "myapp",
-  "description": "Boilerplate web app using node, express, mongodb, backbone, marionette.  Tooling includes Grunt, Bower, Browserify, etc.",
+  "description": "Portfolio website using node, express, mongodb, backbone, marionette.  Tooling includes Grunt, Bower, Browserify, etc.",
   "version": "0.0.1",
-  "author": "Jason Krol",
+  "author": "Jian",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jkat98/benm.git"
+    "url": "https://github.com/JianJiao/porfolio.git"
   },
   "engines": {
     "node": "0.10.x"
