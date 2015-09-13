@@ -15,21 +15,13 @@
     </div>
     <div id='group2' class='group'>
     </div>
-{{!--     <div id='group3' class='group'>
-    </div>
-    <div id='group4' class='group'>
-    </div>
-    <div id='group5' class='group'>
-    </div>
-    <div id='group6' class='group'>
-    </div> --}}
 </div>
 
-  <script>
-    var debugInput = document.querySelector("input");
-    function updateDebugState() {
-        document.body.classList.toggle('debug-on', debugInput.checked);
-    }
-    debugInput.addEventListener("click", updateDebugState);
-    updateDebugState();
-  </script>
+<script>
+  var debugInput = document.querySelector("input");
+  function updateDebugState() {
+      document.body.classList.toggle('debug-on', debugInput.checked);
+  }
+  debugInput.addEventListener("click", updateDebugState);
+  updateDebugState();
+</script>
