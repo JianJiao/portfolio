@@ -1,0 +1,386 @@
+#projects{
+  /**
+  * Basic styles
+  */
+  // background-image: url(../img/back.jpg);
+  // background-color: black;
+  font-size: 0.3em;
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+  heigth: 100vh;
+  width: 100%;
+
+  > li{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-perspective: 1600px;
+    perspective: 1600px;
+
+    .description{
+      position: relative;
+      width: 50%;
+      padding: 2em 4em;
+      font-size: 1.5em;
+      z-index: 1000;
+      opacity: 0;
+      border: 3px solid black;
+
+      h2{
+        font-size: 2em;
+      }
+    }
+
+    .pics{
+      visibility: hidden;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 50%;
+      // -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      transform: translateY(-50%) rotateX(60deg) rotateZ(35deg);
+
+      // border: 3px solid black;
+
+      a{
+        outline: 1px solid transparent;
+      }
+
+      a, a > img{
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
+      a:first-child{
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  /**
+  * Show & hide
+  * Default visibility was hidden
+  */
+  .description{
+    transition: opacity 4s;
+  }
+
+  .show{
+    .pics{
+      visibility: visible;
+    }
+
+    .description{
+      opacity: 1;
+    }
+  }
+
+  // when hide and show are both present,
+  // hide will override show.
+  // hide only changes opacity, not visibility; only change .description, not pics
+  // remove .show for visibility change: only do that when animation ended
+  // .description visibility is always visible
+  // Lastly, if we remove .show during the transition, the end value is the same so
+  // if won't trigger another transition on the .description
+  .hide{
+    .description{
+      opacity: 0;
+    }
+  }
+
+
+  /**
+  * Move up, down
+  */
+
+  .moveUpOut .pics a{
+    animation: moveUpOut 1.5s both;
+  }
+
+  .moveUpOut, .moveDownOut{
+    .pics a:nth-child(2){
+      animation-delay: 0.25s;
+    }
+  }
+
+  .moveUpIn .pics a{
+    animation: moveUpIn 1.5s 0.5s both;
+  }
+
+  .moveUpIn, .moveDownIn{
+    .pics a:nth-child(2){
+      animation-delay: 0.75s;
+    }
+  }
+
+  .moveDownOut .pics a{
+    animation: moveDownOut 1.5s both;
+  }
+
+  .moveDownIn .pics a{
+    animation: moveDownIn 1.5s 0.5s both;
+  }
+
+  /**
+  * Slide animation
+  */
+  @names: slideLeft slideRight slideUp;
+  @length: length(@names);
+
+  .animationLoop(@names; @index) when (@index > 0){
+    .animationLoop(@names; (@index - 1));
+
+    @name: extract(@names, @index);
+    @outName: ~"@{name}Out";
+    @inName: ~"@{name}In";
+
+    .@{outName} .pics{
+      a{
+        animation: @outName 1.5s both;
+      }
+      a:nth-child(2){
+        animation-delay: 0.25s;
+      }
+    }
+
+    .@{inName} .pics{
+      a{
+        animation: @inName 1.5s 0.5s both;
+      }
+      a:nth-child(2){
+        animation-delay: 0.75s;
+      }
+    }
+
+  }
+  .animationLoop(@names; @length);
+
+  .slideDownIn .pics{
+    a{
+      animation: slideDownIn 1.5s 0.5s both;
+    }
+    a:first-child{
+      animation-delay: 0.75s;
+    }
+  }
+
+  .slideDownOut .pics{
+    a{
+      animation: slideDownOut 1.5s both;
+    }
+    a:first-child{
+      animation-delay: 0.25s;
+    }
+  }
+
+
+
+  .xtrans(@val: 0px){
+    transform: translateX(@val);
+  }
+
+  .ytrans(@val: 0px){
+    transform: translateY(@val);
+  }
+
+  .cubic{
+    animation-timing-function: cubic-bezier(1, 0, 0, 1);
+  }
+
+  @keyframes slideLeftOut{
+    0%{
+      .xtrans(0px);
+    }
+    25%{
+      .xtrans(30px);
+      .cubic;
+    }
+    100%{
+      .xtrans(-3000px);
+    }
+  }
+
+  @keyframes slideRightOut{
+    0%{
+      .xtrans(0px);
+    }
+    25%{
+      .xtrans(-30px);
+      .cubic;
+    }
+    100%{
+      .xtrans(3000px);
+    }
+  }
+
+  @keyframes slideUpOut{
+    0%{
+      .ytrans;
+    }
+    25%{
+      .ytrans(30px);
+      .cubic;
+    }
+    100%{
+      .ytrans(-3000px);
+    }
+  }
+
+  @keyframes slideDownOut{
+    0%{
+      .ytrans;
+    }
+    25%{
+      .ytrans(-30px);
+      .cubic;
+    }
+    100%{
+      .ytrans(3000px);
+    }
+  }
+
+  /**
+  * Slide in
+  */
+  @keyframes slideLeftIn{
+    0%{
+      .xtrans(3000px);
+      .cubic;
+    }
+    75%{
+      .xtrans(-30px);
+    }
+    100%{
+      .xtrans(0px);
+    }
+  }
+
+  @keyframes slideRightIn{
+    0%{
+      .xtrans(-3000px);
+      .cubic;
+    }
+    75%{
+      .xtrans(30px);
+    }
+    100%{
+      .xtrans(0px);
+    }
+  }
+
+  @keyframes slideUpIn{
+    0%{
+      .ytrans(3000px);
+      .cubic;
+    }
+    85%{
+      .ytrans(-30px);
+    }
+    100%{
+      .ytrans(0px);
+    }
+  }
+
+  @keyframes slideDownIn{
+    0%{
+      .ytrans(-3000px);
+      .cubic;
+    }
+    85%{
+      .ytrans(30px);
+    }
+    100%{
+      .ytrans(0px);
+    }
+  }
+
+
+
+  @keyframes moveUpOut{
+    0%{
+      transform: translateZ(0px);
+    }
+    25%{
+      animation-timing-function: cubic-bezier(1, 0, 0, 1);
+      transform: translateZ(-30px);
+    }
+    100%{
+      transform: translateZ(3000px);
+    }
+  }
+
+
+
+  @keyframes moveUpIn{
+    0%{
+      animatin-timing-function: cubic-bezier(1, 0, 0, 1);
+      transform: translateZ(-3000px);
+    }
+    75%{
+      transform: translateZ(30px);
+    }
+    100%{
+      transform: translateZ(0px);
+    }
+  }
+
+  @keyframes moveDownOut{
+    0%{
+      transform: translateZ(0px);
+    }
+    25%{
+      animation-timing-function: cubic-bezier(1, 0, 0, 1);
+      transform: translateZ(30px);
+    }
+    100%{
+      transform: translateZ(-3000px);
+    }
+  }
+
+  @keyframes moveDownIn{
+    0%{
+      animation-timing-function: cubic-bezier(1, 0, 0, 1);
+      transform: translateZ(3000px);
+    }
+    75%{
+      transform: translateZ(-30px);
+    }
+    100%{
+      transform: translateZ(0px);
+    }
+  }
+
+}
+
+
+
+
+#slideshow nav{
+  text-align: center;
+  margin-top: 20px;
+
+  span{
+    display: inline-block;
+    width: 60px;
+    height: 5px;
+    border-top: 10px solid #fff;
+    border-bottom: 10px solid #fff;
+    background-color: #ddd;
+    cursor: pointer;
+    margin: 0 3px;
+    transition: background-color 0.2s;
+
+    &:hover{
+      background-color: #333;
+    }
+
+    &.current{
+      background-color: #aaa;
+    }
+  }
+
+}
+
