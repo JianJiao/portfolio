@@ -21,6 +21,30 @@ var App = Backbone.View.extend({
       el: '#group1',
       projects: this.projects,
     });
+
+    // second group as the transition group
+    var second = new GroupView.CommonGroup({
+      el: '#group2',
+    });
+    second.addLayer('base layer');
+
+    // all other groups with data
+    var above = true;
+    this.projects.each(function(project, idx){
+      var groupId = '#group' + (idx + 3);
+      var group = new GroupView.CommonGroup({
+        el: groupId,
+        model: project
+      });
+      if(above){
+        group.addAboveLayers();
+        above = false;
+      }else{
+        group.addBelowLayers();
+        above = true;
+      }
+    }, this);
+
   },
 
   events:{

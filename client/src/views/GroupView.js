@@ -1,26 +1,20 @@
 var LayerView = require('./LayerView.js');
 var ProjectsView = require('./ProjectsView.js');
 
-// el will be passed when initializing
+// model and el will be passed when initializing
 var GroupView = Backbone.View.extend({
   initialize: function(){
     this.subviews = [];
   },
 
-  // options.className, options.model
-  addLayer: function(options){
-    var layerView = new LayerView(options);
-    this.subviews.push(layerView);
+  addLayer: function(className){
+    var layerView = new LayerView.LayerView({className: className});
     this.$el.append(layerView.render().el);
   },
 
-  render: function(){
-    return this;
-  },
 });
 
 var IntroGroup = GroupView.extend({
-
   // @param: {Projects(collection)} options.projects
   initialize: function(options){
     this.constructor.__super__.initialize.apply(this, arguments);
@@ -55,7 +49,34 @@ var IntroGroup = GroupView.extend({
   },
 });
 
+var CommonGroup = GroupView.extend({
+  addAboveLayers: function(){
+    this._addDataLayer('base layer', LayerView.PicLayer);
+    this._addDataLayer('fore layer', LayerView.DescLayer);
+  },
+
+  addBelowLayers: function(){
+    this._addDataLayer('base layer', LayerView.PicLayer);
+    this._addDataLayer('deep layer', LayerView.DescLayer);
+  },
+
+  _addDataLayer: function(className, ViewClass){
+    var layerView = new ViewClass({
+      model: this.model,
+      className: className,
+    });
+    this.subviews.push(layerView);
+    this.$el.append(layerView.render().el);
+  },
+
+  render: function(){
+    return this;
+  },
+
+});
+
 module.exports = {
   GroupView: GroupView,
   IntroGroup: IntroGroup,
+  CommonGroup: CommonGroup,
 };
