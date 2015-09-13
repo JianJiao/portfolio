@@ -49,7 +49,10 @@ var IntroGroup = GroupView.extend({
   },
 });
 
+// el is created here
 var CommonGroup = GroupView.extend({
+  className: 'common group',
+
   addAboveLayers: function(){
     this._addDataLayer('base layer', LayerView.PicLayer);
     this._addDataLayer('fore layer', LayerView.DescLayer);
@@ -69,7 +72,13 @@ var CommonGroup = GroupView.extend({
     this.$el.append(layerView.render().el);
   },
 
-  render: function(){
+  // @param: {Boolean} above
+  render: function(above){
+    if(above){
+      this.addAboveLayers();
+    }else{
+      this.addBelowLayers();
+    }
     return this;
   },
 

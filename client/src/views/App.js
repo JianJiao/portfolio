@@ -31,18 +31,13 @@ var App = Backbone.View.extend({
     // all other groups with data
     var above = true;
     this.projects.each(function(project, idx){
-      var groupId = '#group' + (idx + 3);
+      var groupId = 'group' + (idx + 3);
       var group = new GroupView.CommonGroup({
-        el: groupId,
-        model: project
+        id: groupId,
+        model: project,
       });
-      if(above){
-        group.addAboveLayers();
-        above = false;
-      }else{
-        group.addBelowLayers();
-        above = true;
-      }
+      this.$el.append(group.render(above).el);
+      above = above ? false : true;
     }, this);
 
   },
