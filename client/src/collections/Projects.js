@@ -65,7 +65,6 @@ var Projects = Backbone.Collection.extend({
     if(idx >= this.length){
       idx = 0;
     }
-    console.log(idx);
     var next = this.at(idx);
     this.showOne(next);
   },

@@ -27,7 +27,6 @@ var ProjectsView = Backbone.View.extend({
       this.subviews.push(view);
 
       navtab = new Navtab({model: project});
-      console.log(navtab.el);
       this.$('nav').append(navtab.render().el);
       this.subviews.push(navtab);
     }, this);

@@ -13,7 +13,6 @@ var Navtab = Backbone.View.extend({
   },
 
   onClick: function(){
-    console.log('hi here here');
     this.model.requestShow();
   },
 

@@ -26,7 +26,7 @@ var ProjectView = Backbone.View.extend({
 
   show: function(anim){
     anim = anim || this.getAnim(true);
-    console.log('show is triggered ' + anim);
+    // console.log('show is triggered ' + anim);
     this.$el.removeClass('hide');
     this.$el.addClass('show');
     var counter = 0;
@@ -52,7 +52,7 @@ var ProjectView = Backbone.View.extend({
 
   hide: function(anim){
     anim = anim || this.getAnim(false);
-    console.log('hide is triggered ' + anim);
+    // console.log('hide is triggered ' + anim);
     this.$el.addClass('hide');
     var counter = 0;
     this.$el.addClass(anim);

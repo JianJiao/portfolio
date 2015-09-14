@@ -20,7 +20,6 @@ var IntroGroup = GroupView.extend({
     this.constructor.__super__.initialize.apply(this, arguments);
     this.z = -60;
     this.opacityVal = 1;
-    console.log(options.projects);
     this.initSlideshow(options.projects);
   },
 
