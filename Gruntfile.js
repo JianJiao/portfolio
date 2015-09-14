@@ -89,23 +89,23 @@ module.exports = function(grunt) {
                     ]
                 }
             },
-            development: {
-                options: {
-                    compress: false,
-                    yuicompress: false,
-                    optimization: 2,
-                    sourceMap: true,
-                    sourceMapFilename: 'build/<%= pkg.name %>.css.map',
-                    sourceMapBasepath: 'build/',
-                },
-                files: {
-                    'build/<%= pkg.name %>.css': [
-                        'client/styles/reset.css',
-                        'client/requires/*/css/*',
-                        'client/styles/less/main.less'
-                    ]
-                }
-            }
+            // development: {
+            //     options: {
+            //         compress: false,
+            //         yuicompress: false,
+            //         optimization: 2,
+            //         sourceMap: true,
+            //         // sourceMapFilename: 'build/<%= pkg.name %>.css.map',
+            //         sourceMapRootpath: '/',
+            //     },
+            //     files: {
+            //         'build/<%= pkg.name %>.css': [
+            //             'client/styles/reset.css',
+            //             'client/requires/*/css/*',
+            //             'client/styles/less/main.less'
+            //         ]
+            //     }
+            // }
         },
 
         concat: {
@@ -127,9 +127,6 @@ module.exports = function(grunt) {
                 },{
                     src: 'build/uitest.js',
                     dest: 'public/js/uitest.js'
-                },{
-                    src: 'build/<%= pkg.name %>.css.map',
-                    dest: 'public/css/<%= pkg.name %>.css.map',
                 }]
             },
             prod: {
@@ -259,7 +256,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('init:dev', ['clean', 'bower', 'browserify:vendor']);
 
-    grunt.registerTask('build:dev', ['clean:dev', 'browserify:app', 'browserify:test', 'jshint:dev', 'less:development', 'concat', 'copy:dev']);
+    grunt.registerTask('build:dev', ['clean:dev', 'browserify:app', 'browserify:test', 'jshint:dev', 'less:transpile', 'concat', 'copy:dev']);
     grunt.registerTask('build:prod', ['clean:prod', 'browserify:vendor', 'browserify:app', 'jshint:all', 'less:transpile', 'concat', 'cssmin', 'uglify', 'copy:prod']);
 
     grunt.registerTask('heroku', ['init:dev', 'build:dev']);

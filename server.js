@@ -22,6 +22,8 @@ app.use(express.methodOverride());
 app.use(express.cookieParser('some-secret-value-here'));
 app.use(app.router);
 app.use('/', express.static(path.join(__dirname, 'public')));
+// intended for sourceMap of less, not working though
+// app.use('/client/styles/less', express.static('client/styles/less/'));
 
 // development only
 if ('development' == app.get('env')) {
@@ -39,6 +41,7 @@ mongoose.connection.on('open', function() {
 
 //routes list:
 routes.initialize(app);
+
 
 //finally boot up the server:
 http.createServer(app).listen(app.get('port'), function() {
