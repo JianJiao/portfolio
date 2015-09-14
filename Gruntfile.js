@@ -83,7 +83,7 @@ module.exports = function(grunt) {
             transpile: {
                 files: {
                     'build/<%= pkg.name %>.css': [
-                        'client/styles/reset.css',
+                        'client/styles/normalize.css',
                         'client/requires/*/css/*',
                         'client/styles/less/main.less'
                     ]
@@ -100,7 +100,7 @@ module.exports = function(grunt) {
             //     },
             //     files: {
             //         'build/<%= pkg.name %>.css': [
-            //             'client/styles/reset.css',
+            //             'client/styles/normalize.css',
             //             'client/requires/*/css/*',
             //             'client/styles/less/main.less'
             //         ]
