@@ -3,29 +3,30 @@ var config = {};
 
 config.projects = [
   {
-    title: 'online vistrials',
-    description: 'ga project',
+    title: 'Online VisTrails',
+    description: 'Online Data Analytics Workflow IDE: a NSF and NASA sponsored project aiming to build a web-based workflow editor to design, compose, execute and manage scientific workflows',
     links: ['http://google.com/', 'http://google.com/'],
     picLinks: ['img/1_screen.jpg', 'img/2_screen.jpg'],
   },
-  {
-    title: 'another project',
-    description: 'somehint new',
+    {
+    title: 'Online VisTrails',
+    description: 'Online Data Analytics Workflow IDE: a NSF and NASA sponsored project aiming to build a web-based workflow editor to design, compose, execute and manage scientific workflows',
     links: ['http://google.com/', 'http://google.com/'],
     picLinks: ['img/1_screen.jpg', 'img/2_screen.jpg'],
   },
-  {
-    title: 'something big',
-    description: 'detail',
+    {
+    title: 'Online VisTrails',
+    description: 'Online Data Analytics Workflow IDE: a NSF and NASA sponsored project aiming to build a web-based workflow editor to design, compose, execute and manage scientific workflows',
     links: ['http://google.com/', 'http://google.com/'],
     picLinks: ['img/1_screen.jpg', 'img/2_screen.jpg'],
   },
-  {
-    title: 'something big',
-    description: 'detail',
+    {
+    title: 'Online VisTrails',
+    description: 'Online Data Analytics Workflow IDE: a NSF and NASA sponsored project aiming to build a web-based workflow editor to design, compose, execute and manage scientific workflows',
     links: ['http://google.com/', 'http://google.com/'],
     picLinks: ['img/1_screen.jpg', 'img/2_screen.jpg'],
   },
+
 ];
 
 module.exports = config;
