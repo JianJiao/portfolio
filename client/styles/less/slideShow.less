@@ -58,6 +58,20 @@
         margin-bottom: 30px;
       }
     }
+
+    // first one not absolute, keeps the dimension of the parent up
+    .pics.row{
+      a{
+        width: 48%;
+        margin: 0;
+      }
+
+      a:nth-child(2){
+        position: absolute;
+        left: 52%;
+        top: 0;
+      }
+    }
   }
 
   /**
@@ -141,39 +155,65 @@
       a{
         animation: @outName 1.5s both;
       }
-      a:nth-child(2){
-        animation-delay: 0.25s;
-      }
     }
 
     .@{inName} .pics{
       a{
         animation: @inName 1.5s 0.5s both;
       }
-      a:nth-child(2){
-        animation-delay: 0.75s;
-      }
     }
 
   }
   .animationLoop(@names; @length);
 
+  .slideRightIn .pics.col a:nth-child(2),
+  .slideRightIn .pics.row a:first-child{
+    animation-delay: 0.75s;
+  }
+
+  .slideRightOut .pics.col a:nth-child(2),
+  .slideRightOut .pics.row a:first-child{
+    animation-delay: 0.25s;
+  }
+
+  .slideLeftIn .pics a:nth-child(2){
+    animation-delay: 0.75s;
+  }
+
+  .slideLeftOut .pics a:nth-child(2){
+    animation-delay: 0.25s;
+  }
+
+  .slideUpIn .pics a:nth-child(2){
+    animation-delay: 0.75s;
+  }
+
+  .slideUpOut .pics a:nth-child(2){
+    animation-delay: 0.25s;
+  }
+
+
+
   .slideDownIn .pics{
     a{
       animation: slideDownIn 1.5s 0.5s both;
     }
-    a:first-child{
-      animation-delay: 0.75s;
-    }
+  }
+
+  .slideDownIn .pics.row a:nth-child(2),
+  .slideDownIn .pics.col a:first-child{
+    animation-delay: 0.75s;
   }
 
   .slideDownOut .pics{
     a{
       animation: slideDownOut 1.5s both;
     }
-    a:first-child{
-      animation-delay: 0.25s;
-    }
+  }
+
+  .slideDownOut .pics.row a:nth-child(2),
+  .slideDownOut .pics.col a:first-child{
+    animation-delay: 0.25s;
   }
 
 
