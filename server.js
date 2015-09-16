@@ -7,7 +7,10 @@ var express = require('express'),
     // seeder = require('./app/seeder'),
     app = express();
 
-app.set('port', process.env.PORT || 3300);
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 3300;
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+
+app.set('port', server_port);
 app.set('views', __dirname + '/views');
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
@@ -47,6 +50,6 @@ routes.initialize(app);
 
 
 //finally boot up the server:
-http.createServer(app).listen(app.get('port'), function() {
-    console.log('Server up: http://localhost:' + app.get('port'));
+http.createServer(app).listen(app.get('port'), server_ip_address, function() {
+    console.log( "Listening on " + server_ip_address + ", server_port " + app.get('port') );
 });
