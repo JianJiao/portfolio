@@ -1,6 +1,3 @@
-<div class="debug">
-  <label><input type="checkbox"> Debug</label>
-</div>
 <div id="app" class='parallax'>
     <div id='group1' class='group'>
       <div class='layer base bottom'>
@@ -16,12 +13,3 @@
     <div id='group2' class='group'>
     </div>
 </div>
-
-<script>
-  var debugInput = document.querySelector("input");
-  function updateDebugState() {
-      document.body.classList.toggle('debug-on', debugInput.checked);
-  }
-  debugInput.addEventListener("click", updateDebugState);
-  updateDebugState();
-</script>
