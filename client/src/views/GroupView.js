@@ -54,7 +54,7 @@ var CommonGroup = GroupView.extend({
 
   addAboveLayers: function(){
     this._addDataLayer('base layer', LayerView.PicLayer);
-    this._addDataLayer('fore layer', LayerView.DescLayer);
+    this._addDataLayer('fore layer near', LayerView.DescLayer);
   },
 
   addBelowLayers: function(){

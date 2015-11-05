@@ -2,7 +2,7 @@
 * Basic parallax
 */
 .parallax{
-  // font-size: 200%;
+  font-size: 1.3em;
   height: 500px;
   height: 100vh;
   perspective: 300px;
@@ -22,6 +22,10 @@
       left: 0;
       bottom: 0;
       right: 0;
+    }
+
+    .near {
+      pointer-events: none;
     }
 
     .fore{
@@ -142,7 +146,26 @@ body, html {
 
   .base {
     background-color: #8781BD;
+
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+
+      button {
+        color: #bdc3c7;
+      }
+
+      #contact {
+        padding-left: 10%;
+      }
+
+    }
   }
+
+
 }
 
 

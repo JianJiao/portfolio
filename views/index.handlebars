@@ -1,3 +1,6 @@
+<div class="debug">
+  <label><input type="checkbox"> Debug</label>
+</div>
 <div id="app" class='parallax'>
     <div id='group1' class='group'>
       <div class='layer base bottom'>
@@ -14,7 +17,51 @@
     </div>
     <div id='end' class='group'>
       <div class='base layer'>
-
+        <div class='container'>
+          <div class='row'>
+            <div class='col-md-6'>
+              <form role="form">
+                <div class='row'>
+                  <div class="form-group col-md-6">
+                    <label for="first">First Name</label>
+                    <input type="text" class="form-control" id="fist">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="last">Last Name</label>
+                    <input type="text" class="form-control" id="last">
+                  </div>
+                </div>
+                <div class='row'>
+                  <div class="form-group col-md-12">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email">
+                  </div>
+                </div>
+                <div class='row'>
+                  <div class="form-group col-md-12">
+                    <label for="comment">Comment:</label>
+                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+            </div>
+            <div class='col-md-6' id='contact'>
+              <h2>Contact</h2>
+              <p>Email: jianj@andrew.cmu.edu</p>
+              <p>Current Location: Mountain View, CA 94043</p>
+              <p>I am currently looking for employment. If you are interested, leave me a message or add me on Linked-in!</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 </div>
+<script>
+  var debugInput = document.querySelector("input");
+  function updateDebugState() {
+      document.body.classList.toggle('debug-on', debugInput.checked);
+  }
+  debugInput.addEventListener("click", updateDebugState);
+  updateDebugState();
+</script>
