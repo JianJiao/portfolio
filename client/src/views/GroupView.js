@@ -37,12 +37,12 @@ var IntroGroup = GroupView.extend({
       return;
     }
 
-    // move pseudo base on z axis
+    // Move surface and bottom together
     this.$el.find('.base').css({
       transform: 'translateZ(' + this.z + 'px) scale(1.2)',
     });
 
-    // change the bg_blur opacity
+    // Change the opacity of surface
     this.$el.find('.surface').css({opacity: this.opacityVal});
 
   },

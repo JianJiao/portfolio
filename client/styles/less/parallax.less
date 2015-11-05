@@ -3,6 +3,7 @@
 */
 .parallax{
   // font-size: 200%;
+  height: 500px;
   height: 100vh;
   perspective: 300px;
   transform-style: preserve-3d;
@@ -11,6 +12,7 @@
 
   .group{
     position: relative;
+    heigth: 500px;
     height: 100vh;
     transform-style: preserve-3d;
 
@@ -20,14 +22,6 @@
       left: 0;
       bottom: 0;
       right: 0;
-
-        .content{
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        text-align: center;
-        transform: translate(-50%, -50%);
-      }
     }
 
     .fore{
@@ -55,25 +49,27 @@ body, html {
 /************
 * First group
 */
-// #group1{
-//   z-index: 3;
+#group1{
+  z-index: 3;
+  // overflow-y: auto;
 
-//   .base{
-//     transform: translateZ(-60px) scale(1.2);
-//   }
+  .base{
+    transform: translateZ(-60px) scale(1.2);
+  }
 
-//   .bottom{
-//     background-image: url(../img/mt_blur.jpg);
-//     background-size: 100% 100%;
-//   }
+  .bottom{
+    background-image: url(../img/mt_blur.jpg);
+    background-size: 100% 500px;
+    background-size: 100vw 100vh;
+  }
 
-//   .surface{
-//     background-image: url(../img/mt.jpg);
-//     background-size: 100% 100%;
-//   }
+  // .surface{
+  //   // background-image: url(../img/mt.jpg);
+  //   background-size: 100vw 100vh;
+  // }
 
 
-// }
+}
 
 /*************
 * Other groups
