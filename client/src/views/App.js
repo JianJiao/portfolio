@@ -36,10 +36,9 @@ var App = Backbone.View.extend({
         id: groupId,
         model: project
       });
-      this.$el.append(group.render(above).el);
+      this.$el.find('#end').before(group.render(above).el);
       above = above ? false : true;
     }, this);
-
   },
 
   events:{
