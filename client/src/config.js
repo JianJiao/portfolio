@@ -8,6 +8,7 @@ config.projects = [
     links: ['http://einstein.sv.cmu.edu:9016/', 'http://einstein.sv.cmu.edu:9016/'],
     picLinks: ['img/vt.png', 'img/vtII.png'],
     position: 'col',
+    picClass: 'fat',
   },
   {
     title: 'IOS Games',
@@ -15,6 +16,7 @@ config.projects = [
     links: ['https://github.com/JianJiao/Transform.git', 'https://github.com/JianJiao/Transform.git'],
     picLinks: ['img/transform.png', 'img/transformII.png'],
     position: 'row',
+    picClass: 'thin',
   },
   {
     title: 'Twitter Big Data Analytics Web Service',
@@ -22,6 +24,7 @@ config.projects = [
     links: ['https://github.com/JianJiao/Transform.git', 'https://github.com/JianJiao/Transform.git'],
     picLinks: ['img/cc.png', 'img/ccII.png'],
     position: 'col',
+    picClass: 'fat',
   },
   {
     title: 'Survivable Social Network',
@@ -29,6 +32,7 @@ config.projects = [
     links: ['#', '#'],
     picLinks: ['img/fse.png', 'img/fseII.png'],
     position: 'col',
+    picClass: 'fat',
   },
   {
     title: 'Parallel Programming Optimization',
@@ -36,6 +40,7 @@ config.projects = [
     links: ['#', '#'],
     picLinks: ['img/hwfc.png', 'img/hwfcII.png'],
     position: 'col',
+    picClass: 'fat',
   },
   {
     title: 'Workflow & Web Service Analytics and Visualization',
@@ -43,6 +48,7 @@ config.projects = [
     links: ['https://github.com/cmusv-sc/bigdata-workflow-recommendation-ibm.git', 'https://github.com/cmusv-sc/bigdata-workflow-recommendation-ibm.git'],
     picLinks: ['img/soc.png', 'img/socII.png'],
     position: 'col',
+    picClass: 'fat',
   },
 
 ];

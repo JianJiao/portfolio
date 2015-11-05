@@ -34,7 +34,7 @@ var App = Backbone.View.extend({
       var groupId = 'group' + (idx + 3);
       var group = new GroupView.CommonGroup({
         id: groupId,
-        model: project,
+        model: project
       });
       this.$el.append(group.render(above).el);
       above = above ? false : true;
