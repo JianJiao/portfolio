@@ -60,14 +60,21 @@ module.exports = function(grunt) {
                             depends: {
                                 jquery: '$'
                             }
+                        },
+                        flatUI: {
+                            path: 'client/requires/flat-ui/flat-ui.js',
+                            exports: 'flatUI',
+                            depends: {
+                                jquery: '$'
+                            }
+                        },
+                        'jquery.validate': {
+                            path: 'client/requires/jquery-validation/jquery.validate.js',
+                            exports: 'jquery.validate',
+                            depends: {
+                                jquery: '$'
+                            }
                         }
-                        // flatUI: {
-                        //     path: 'client/requires/flat-ui/flat-ui.js',
-                        //     exports: 'flatUI',
-                        //     depends: {
-                        //         jquery: '$'
-                        //     }
-                        // }
                     }
                 }
             },
