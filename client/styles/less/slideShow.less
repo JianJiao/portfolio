@@ -424,6 +424,53 @@
       background-color: #aaa;
     }
   }
+}
+
+
+@media screen and (max-width: 65.3125em) {
+  #slideshow {
+    #projects {
+      .description,
+      .pics {
+        width: 80%;
+      }
+
+      .description {
+        display: block;
+      }
+
+      .pics {
+        position: absolute;
+        left: 0;
+        opacity: 0.3;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 35em) {
+  #slideshow{
+
+    #projects {
+      height: 320px;
+      .description {
+        font-size: 1em;
+        padding: 1.4em;
+      }
+    }
+
+    nav span {
+      width: 30px;
+      height: 10px;
+      margin: 0 10px;
+    }
+
+  }
 
 }
+
+
+
 
