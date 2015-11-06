@@ -1,12 +1,138 @@
 /***************
 * Basic parallax
 */
+@media screen and (max-width: 45em) {
+  #group2{
+    height: 0;
+  }
+}
+
+@media screen and (min-width: 45em) {
+
+  .parallax{
+    font-size: 1.3em;
+    height: 500px;
+    height: 100vh;
+    perspective: 300px;
+    transform-style: preserve-3d;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .group{
+      position: relative;
+      heigth: 500px;
+      height: 100vh;
+      transform-style: preserve-3d;
+
+      .layer{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+
+      .near {
+        pointer-events: none;
+      }
+
+      .fore{
+        transform: translateZ(100px) scale(0.67);
+      }
+
+      .base{
+        transform: translateZ(0);
+      }
+
+      .back{
+        transform: translateZ(-100px) scale(1.33);
+      }
+
+      .deep{
+        transform: translateZ(-300px) scale(2);
+      }
+    }
+  }
+
+  body, html {
+    overflow: hidden;
+  }
+
+
+
+  /*************
+  * Other groups
+  */
+
+
+
+  #group2{
+    z-index: 2;
+    height: 50vh;
+
+    .base{
+      background-color: black;
+    }
+  }
+
+  #group3{
+    z-index: 3;
+
+    .base{
+      background-color: #F4D0AC;
+    }
+  }
+
+
+  #group4{
+    z-index: 2;
+
+    .deep{
+      background-color: #00B3FF;
+    }
+  }
+
+
+  #group5{
+    z-index: 3;
+
+    .base{
+      background-color: #e67e22;
+    }
+  }
+
+
+  #group6{
+    z-index: 2;
+
+    .deep{
+      background-color: #9b59b6;
+    }
+  }
+
+  #group7{
+    z-index: 3;
+
+    .base{
+      background-color: #2ecc71;
+    }
+  }
+
+  #group8{
+    z-index: 2;
+
+    .deep{
+      background-color: #3498db;
+    }
+  }
+
+}
+
+
 .parallax{
   font-size: 1.3em;
   height: 500px;
   height: 100vh;
-  perspective: 300px;
-  transform-style: preserve-3d;
   overflow-y: auto;
   overflow-x: hidden;
 
@@ -14,41 +140,10 @@
     position: relative;
     heigth: 500px;
     height: 100vh;
-    transform-style: preserve-3d;
-
-    .layer{
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-    }
-
-    .near {
-      pointer-events: none;
-    }
-
-    .fore{
-      transform: translateZ(100px) scale(0.67);
-    }
-
-    .base{
-      transform: translateZ(0);
-    }
-
-    .back{
-      transform: translateZ(-100px) scale(1.33);
-    }
-
-    .deep{
-      transform: translateZ(-300px) scale(2);
-    }
   }
 }
 
-body, html {
-  overflow: hidden;
-}
+
 
 /************
 * First group
@@ -67,79 +162,9 @@ body, html {
     background-size: 100vw 100vh;
   }
 
-  // .surface{
-  //   // background-image: url(../img/mt.jpg);
-  //   background-size: 100vw 100vh;
-  // }
-
 
 }
 
-/*************
-* Other groups
-*/
-
-
-
-#group2{
-  z-index: 2;
-  height: 50vh;
-
-  .base{
-    background-color: black;
-  }
-}
-
-#group3{
-  z-index: 3;
-
-  .base{
-    background-color: #F4D0AC;
-  }
-}
-
-
-#group4{
-  z-index: 2;
-
-  .deep{
-    background-color: #00B3FF;
-  }
-}
-
-
-#group5{
-  z-index: 3;
-
-  .base{
-    background-color: #e67e22;
-  }
-}
-
-
-#group6{
-  z-index: 2;
-
-  .deep{
-    background-color: #9b59b6;
-  }
-}
-
-#group7{
-  z-index: 3;
-
-  .base{
-    background-color: #2ecc71;
-  }
-}
-
-#group8{
-  z-index: 2;
-
-  .deep{
-    background-color: #3498db;
-  }
-}
 
 #end {
   z-index: 3;

@@ -1,11 +1,43 @@
+ @media screen and (min-width: 45em) {
+
+  .common {
+
+    .pics {
+      position: absolute;
+      right: 47%;
+      top: 50%;
+      // padding-left: 10%;
+      transform: translateY(-50%);
+
+      img{
+        max-width: 100%;
+        max-height: 275px;
+        max-height: 55vh;
+        border: 10px solid rgba(236, 240, 241, 0.6);
+        border-radius: 5%;
+      }
+    }
+
+    // Override
+    .pics.thin {
+      right: 58%;
+    }
+
+    .description {
+      // font-size: 1.3em;
+      width: 35%;
+      position: absolute;
+      top: 50%;
+      left: 60%;
+      transform: translateY(-50%);
+
+    }
+  }
+}
+
 .common {
 
   .pics {
-    position: absolute;
-    right: 47%;
-    top: 50%;
-    // padding-left: 10%;
-    transform: translateY(-50%);
 
     img{
       max-width: 100%;
@@ -16,18 +48,5 @@
     }
   }
 
-  // Override
-  .pics.thin {
-    right: 58%;
-  }
 
-  .description {
-    // font-size: 1.3em;
-    width: 35%;
-    position: absolute;
-    top: 50%;
-    left: 60%;
-    transform: translateY(-50%);
-
-  }
 }
