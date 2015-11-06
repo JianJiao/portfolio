@@ -53,7 +53,21 @@ module.exports = function(grunt) {
                                 backbone: 'Backbone',
                                 underscore: '_'
                             }
+                        },
+                        bootstrap: {
+                            path: 'client/requires/bootstrap/bootstrap.js',
+                            exports: 'bootstrap',
+                            depends: {
+                                jquery: '$'
+                            }
                         }
+                        // flatUI: {
+                        //     path: 'client/requires/flat-ui/flat-ui.js',
+                        //     exports: 'flatUI',
+                        //     depends: {
+                        //         jquery: '$'
+                        //     }
+                        // }
                     }
                 }
             },
