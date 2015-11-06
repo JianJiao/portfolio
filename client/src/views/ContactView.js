@@ -14,17 +14,21 @@ var ContactView = Backbone.View.extend({
           required: true,
           email: true
         }
+      },
+      submitHandler: function(form) {
+        $(form).ajaxSubmit({
+          url: '/comments',
+          type: 'POST',
+          success: function(msg) {
+            console.log(msg);
+          }
+        });
+        form.reset();
+        $(form).find('button').blur();
       }
     });
   },
 
-  events: {
-    'submit': 'onSubmit'
-  },
-
-  onSubmit: function(){
-    console.log('submitted');
-  }
 });
 
 module.exports = ContactView;

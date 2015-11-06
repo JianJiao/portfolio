@@ -74,6 +74,13 @@ module.exports = function(grunt) {
                             depends: {
                                 jquery: '$'
                             }
+                        },
+                        'jquery.form': {
+                            path: 'client/requires/jquery-form/jquery.form.js',
+                            exports: 'jquery.form',
+                            depends: {
+                                jquery: 'jquery'
+                            }
                         }
                     }
                 }

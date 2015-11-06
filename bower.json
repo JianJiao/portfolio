@@ -8,6 +8,7 @@
     "bootstrap": "~3.3.5",
     "flat-ui": "~2.2.2",
     "jquery": "~1.10.2",
+    "jquery-form": "~3.46.0",
     "jquery-validation": "~1.14.0",
     "underscore": "~1.5.2"
   },
