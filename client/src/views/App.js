@@ -2,6 +2,7 @@
 var Projects = require('../collections/Projects');
 var config = require('../config');
 var GroupView = require('./GroupView');
+var ContactView = require('./ContactView');
 
 /**
 * App is the presenter of the whole application
@@ -39,6 +40,8 @@ var App = Backbone.View.extend({
       this.$el.find('#end').before(group.render(above).el);
       above = above ? false : true;
     }, this);
+
+    contactView = new ContactView();
   },
 
   events:{
